@@ -14,32 +14,56 @@
     
     <!-- link to fonts, etc. here -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|El+Messiri|Merienda" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco" rel="stylesheet">
 
 
   </head>
 
   <body>
-    <!--Buttons-->
-    <div class="buttons">
-    </div>
 
-    <!--Input Form-->
-    <div class="search">
-            <form id="animal-form">
-                    <label for="animal-input">Add a new farm animal!</label>
+    <div class="container-fluid">
+
+      <!-- Title  -->
+      <div class="jumbotron row">
+          <iframe class="col-sm-3 mr-auto" src="https://giphy.com/embed/8m1T1OauCu3Y7nIHT0" width="200" height="200" 
+            frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+          <h1>Giftastic Farm Animals</h1>
+
+          <iframe class="col-sm-3 ml-auto" src="https://giphy.com/embed/pO7BblX6SGtOrdUCvo" width="200" height="200" 
+            frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+      </div>
+
+      <!--Buttons-->
+      <div class="card">
+          <div class="card-body">
+              <div class="buttons row"></div>
+
+              <!--Input Form-->
+              <div class="search row col-md-4 offset-4">
+                <form id="animal-form">
+                    <label for="animal-input"></label>
                     <input type="text" id="animal-input"><br>
               
                     <!-- Button triggers new movie to be added -->
                     <input id="add-animal" type="submit" value="Add a new farm animal!">
-            </form>
+                </form>
+              </div>
+          
+          </div>
+      </div>
+
+    <!-- Gifs go here -->
+    <div class="card">
+      <div class="card-body">
+        <div class="card-columns">
+        <div id="gifsHere"></div>
+        </div>
+      </div>
     </div>
 
-    <div id="gifsHere"></div>
-
-
-
-
+</div>
 
 
 
@@ -64,3 +88,6 @@
 
 </body>
 </html>
+
+
+<!-- Special thanks to Giphy for making both stickers and gifs possible-->

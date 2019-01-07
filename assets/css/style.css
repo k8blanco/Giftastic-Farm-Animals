@@ -1,0 +1,62 @@
+/* Giftastic Farm Animals CSS */
+
+/* fonts:
+    - title font 
+    - rating font/weight 
+    
+   boxes/cards around gifs
+   
+   search box
+
+   search button
+
+   extras
+    
+   buttons
+    
+    */
+
+
+/* divs:
+    button
+    .search
+    #gifsHere
+*/
+
+body {
+    background-color: #f8c044;
+}
+
+.jumbotron {
+    background-color: #6ca617;
+}
+
+h1 {
+    font-family: 'Sue Ellen Francisco', cursive;
+    font-size: 80px;
+    text-align: center;
+    padding-top: 50px;
+    color: white;
+}
+
+.card {
+    padding: 10px;
+    margin: 20px;
+    background-color: #6ca617;
+}
+
+.search {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button,
+#add-animal {
+    background-color: #990000;
+    color: white;
+    font-family: 'Sue Ellen Francisco', cursive;
+    font-size: 30px;
+    padding: 5px;
+    margin: 5px;
+}
+
