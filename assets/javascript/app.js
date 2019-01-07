@@ -14,12 +14,17 @@ function renderButtons() {
     //create buttons out of array
         for (var i = 0; i < topics.length; i++) {
             var a = $("<button>");
-            //add class to new button
+
+            //add classes to new button
             a.addClass("animal");
+            a.addClass("col-md-2");
+
             //add data attribute
             a.attr("new-animal", topics[i]);
+
             //initial button text
             a.text(topics[i]);
+
             //add button to html
             $(".buttons").append(a);
         }
@@ -74,20 +79,17 @@ $("#add-animal").click(function(event){
                     //get image
                     var animalImage = $("<img>");
 
-                    //give image attributes
+                    //add still and animate attributes to image
                     animalImage.attr({
                         "src": response.data[i].images.fixed_height_still.url,
                         "data-still": response.data[i].images.fixed_height_still.url,
                         "data-animate": response.data[i].images.fixed_height.url,
                     });
+                    
+                    //add bootstrap classes to image to make responsive
                     animalImage.addClass("card-columns");
                     animalImage.addClass("card card-body col-md-12");
                     
-
-                    // animalImage.css("display", "inline-block");
-                    // $('#foo').css('display','none'); 
-                    // $('#foo').css('display','inline-block');
-
                     //add image and rating to div
                     animalDiv.append(p);
                     animalDiv.append(animalImage);
