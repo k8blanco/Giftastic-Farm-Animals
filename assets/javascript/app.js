@@ -56,7 +56,7 @@ $("#add-animal").click(function(event){
         event.preventDefault();
         var animal = $(this).attr("new-animal");
           
-        //fill query giphy API
+        //Giphy queryURL
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + 
                         animal + "&api_key=0Ow8dwl9ntnRmU7yuryWwv6Z5lrMC7Fd&limit=10";
         
@@ -66,18 +66,20 @@ $("#add-animal").click(function(event){
             url: queryURL,
             method: "GET"
         }).then(function(response) {
-            
+            console.log(response);
             //for loop to log response
             for (var i = 0; i < response.data.length; i++) {
 
-                //restrict rating
+                //restrict rating, create cards 
                 if (topics[i].rating !== "r" && topics[i].rating !== "pg-13") {
-                    var animalDiv = $("<div>");
+                    var animalDiv = $("<div class='card' id='animalDiv'>");
                     
-                    //add rating
-                    var p = $("<p class='card-text'>").text("Rating: " + response.data[i].rating);
-                    //get image
-                    var animalImage = $("<img>");
+                    //create rating and title variables
+                    var ratingText = $("<h5 class='card-title'>").text("Rating: " + response.data[i].rating);
+                    var titleText = $("<p class='card-text'>").text("" + response.data[i].title);
+
+                    //create image variable & add class
+                    var animalImage = $("<img class='card-img-top'>");
 
                     //add still and animate attributes to image
                     animalImage.attr({
@@ -85,17 +87,10 @@ $("#add-animal").click(function(event){
                         "data-still": response.data[i].images.fixed_height_still.url,
                         "data-animate": response.data[i].images.fixed_height.url,
                     });
-                    
-                    //add bootstrap classes to image to make responsive
-                    animalImage.addClass("card-columns");
-                    animalImage.addClass("card card-body");
-                    // animalImage.addClass("col-md-12");
-                    
-                    
-                    
+                        
                     //add image, rating and metadata to div
                     animalDiv.append(animalImage);
-                    animalDiv.append(p);
+                    animalDiv.append(ratingText, titleText);
                     $("#gifsHere").prepend(animalDiv);
                     
 
@@ -119,4 +114,38 @@ $("#add-animal").click(function(event){
             }
     });
 
-     
+    // -------------------------------------------------------------------------- //
+
+    //Petfinder API
+
+$(document).ready(function(){
+   
+    //Petfinder queryURL
+    var queryURL = "https://api.petfinder.com/pet.getRandom?key=856e3c7f30bce92473037525f6338193&output=basic&format=json"
+
+    //create ajax call
+    $.ajax({
+    url: queryURL,
+    dataType: "jsonp",
+    method: "GET"
+    }).then(function(response) {
+        console.log(response)
+            var petDiv = $("<div class='card' id='animalDiv'>");
+
+            // //create rating and title variables
+            var age = $("<p class='card-text'>").text("" + response.petfinder.pet.age.$t);
+            var animal = $("<p class='card-text'>").text("" + response.petfinder.pet.animal.$t);
+            var petImage = $("<img style: height=150px; width=150px>");
+            var petProfile = $("<p class='card-text'>").text("Pet Info: " + response.petfinder.pet.description.$t);
+
+            petImage.attr("src", response.petfinder.pet.media.photos.photo[0].$t);
+                  
+            //   //add image, rating and metadata to div
+              petDiv.append(petImage, age, animal);
+              petDiv.append(petProfile);
+              $(".petfinderHere").append(petDiv);
+              
+
+    });
+
+});
