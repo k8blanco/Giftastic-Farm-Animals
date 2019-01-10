@@ -56,6 +56,10 @@ button,
     color: white;
     font-family: 'Sue Ellen Francisco', cursive;
     font-size: 30px;
-    margin: 5px;
+    
+}
+
+#buttonfix {
+    padding-left: 45px;
 }
 

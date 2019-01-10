@@ -2,8 +2,8 @@
 
 
 //Initial array of farm animals  
-    var topics = ["cow", "sheep", "llama", "pig", "farm cat", "sheep dog", "chicken", "rooster", "goat", "pygmy goat",
-                    "horse", "duck", "donkey", "rabbit"]; 
+    var topics = ["cow", "sheep", "llama", "pig", "farm cat", "chicken", "goat", "pygmy goat",
+                    "horse", "donkey", "rabbit", "duck"]; 
 
 //function for displaying animal buttons
 function renderButtons() {
@@ -75,7 +75,7 @@ $("#add-animal").click(function(event){
                     var animalDiv = $("<div>");
                     
                     //add rating
-                    var p = $("<p>").text("Rating: " + response.data[i].rating);
+                    var p = $("<p class='card-text'>").text("Rating: " + response.data[i].rating);
                     //get image
                     var animalImage = $("<img>");
 
@@ -88,12 +88,16 @@ $("#add-animal").click(function(event){
                     
                     //add bootstrap classes to image to make responsive
                     animalImage.addClass("card-columns");
-                    animalImage.addClass("card card-body col-md-12");
+                    animalImage.addClass("card card-body");
+                    // animalImage.addClass("col-md-12");
                     
-                    //add image and rating to div
-                    animalDiv.append(p);
+                    
+                    
+                    //add image, rating and metadata to div
                     animalDiv.append(animalImage);
+                    animalDiv.append(p);
                     $("#gifsHere").prepend(animalDiv);
+                    
 
                 };
             }
