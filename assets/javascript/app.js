@@ -131,20 +131,33 @@ $(document).ready(function(){
     }).then(function(response) {
         console.log(response)
             var petDiv = $("<div class='card' id='animalDiv'>");
+            var profileDiv = $("<div class='card' id='profilePetDiv'>");
 
-            // //create rating and title variables
-            var age = $("<p class='card-text'>").text("" + response.petfinder.pet.age.$t);
-            var animal = $("<p class='card-text'>").text("" + response.petfinder.pet.animal.$t);
-            var petImage = $("<img style: height=150px; width=150px>");
-            var petProfile = $("<p class='card-text'>").text("Pet Info: " + response.petfinder.pet.description.$t);
+            var petTitle = $("<h2>").text("Adopt Your Next Love");
+            var petName = $("<h3 class='card-title'>").text("Meet " + response.petfinder.pet.name.$t);
+            var petImage = $("<img id='pet'>");
+            var petProfile = $("<p class='card-text'>").text("" + response.petfinder.pet.description.$t);
+
+            var contactEmail = $("<p class='card-text'>").text("To learn more about me, please email: " + 
+                response.petfinder.pet.contact.email.$t);
+            var contactPhone = $("<p class='card-text'>").text("or call: " + 
+                response.petfinder.pet.contact.phone.$t);
 
             petImage.attr("src", response.petfinder.pet.media.photos.photo[0].$t);
-                  
-            //   //add image, rating and metadata to div
-              petDiv.append(petImage, age, animal);
-              petDiv.append(petProfile);
-              $(".petfinderHere").append(petDiv);
-              
+            
+            petDiv.append(petTitle, petName, petImage);
+            petDiv.append(contactEmail);
+            $(".petfinderHere").append(petDiv);
+
+            if (response.petfinder.pet.contact.phone.$t) {
+                petDiv.append(contactPhone)
+            };
+            
+
+            profileDiv.append(petProfile);
+            $(".petDescription").append(profileDiv);
+
+            
 
     });
 

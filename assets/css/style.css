@@ -17,6 +17,20 @@ h1 {
     color: white;
 }
 
+h2 {
+    font-family: 'Sue Ellen Francisco', cursive;
+    font-size: 50px;
+    text-align: center;
+    color: white;
+}
+
+h3 {
+    font-family: 'Sue Ellen Francisco', cursive;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
 .card {
     padding: 10px;
     margin: 20px;
@@ -41,7 +55,8 @@ button,
     padding-left: 45px;
 }
 
-#animalDiv {
+#animalDiv,
+#profilePetDiv {
     background-color: #f8c044;
     color: white;
     font-family: 'Sue Ellen Francisco', cursive;
@@ -51,4 +66,15 @@ button,
 
 a {
     color: #990000;
+}
+
+#pet {
+    height: 100px;
+    width: 100px;
+    align-self: center;
+}
+
+.petfinderHere,
+.petDescription {
+    text-align: center;
 }
