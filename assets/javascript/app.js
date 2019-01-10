@@ -140,6 +140,7 @@ $(document).ready(function(){
 
             var contactEmail = $("<p class='card-text'>").text("To learn more about me, please email: " + 
                 response.petfinder.pet.contact.email.$t);
+                
             var contactPhone = $("<p class='card-text'>").text("or call: " + 
                 response.petfinder.pet.contact.phone.$t);
 
@@ -153,9 +154,10 @@ $(document).ready(function(){
                 petDiv.append(contactPhone)
             };
             
-
-            profileDiv.append(petProfile);
-            $(".petDescription").append(profileDiv);
+            if (response.petfinder.pet.description.$t) {
+                profileDiv.append(petProfile);
+                $(".petDescription").append(profileDiv);
+            };
 
             
 
